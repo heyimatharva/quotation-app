@@ -1,11 +1,12 @@
 import React from "react";
+import bgImage from '../assets/bgimage.jpg';
 
 
 
 const Home = () => {
   return (
     <div className="h-screen bg-cover bg-center"
-    style={{ backgroundImage: `url('/src/assets/bgimage.jpg')` }}>
+    style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="pt-16 flex justify-center h-screen items-center">
 
         {/* <h1 className="text-white">Welcome to the Quotation App</h1>
