@@ -3,6 +3,8 @@ import { UseCart } from '../context/CartContext.jsx';
 import { jsPDF } from "jspdf";
 import axios from "axios";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Quotation = () => {
     const { cart } = UseCart();
     const [customerName, setCustomerName] = useState("");
@@ -29,7 +31,7 @@ const Quotation = () => {
         console.log("Payload: ", payload);
 
         try {
-            const response = await axios.post("http://localhost:5002/quotations", payload);
+            const response = await axios.post(`${backendUrl}/quotations`, payload);
             console.log("after API call");
             if(response.status === 201){
                 console.log("Response: ", response.data);

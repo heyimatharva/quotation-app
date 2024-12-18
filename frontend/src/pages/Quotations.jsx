@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Quotations = () => {
 
     const [quotations, setQuotations] = useState([]);
@@ -8,7 +10,7 @@ const Quotations = () => {
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await fetch('http://localhost:5002/quotations');
+                const response = await fetch(`${backendUrl}/quotations`);
                 const result = await response.json();
                 console.log(result);
                 if(result.success) {

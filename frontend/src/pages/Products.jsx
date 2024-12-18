@@ -2,6 +2,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import {UseCart} from '../context/CartContext.jsx';
 import { Link } from "react-router-dom";
+// import dotenv from "dotenv";
+
+// dotenv.config();
+// const backendUrl = process.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Products = () => {
 
@@ -11,7 +16,7 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async() => {
             try {
-                const response = await fetch("http://localhost:5002/products");
+                const response = await fetch(`${backendUrl}/products`);
                 const data = await response.json();
                 setProducts(data);
             } catch(error) {
